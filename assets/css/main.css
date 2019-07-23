@@ -5,6 +5,10 @@
  */
 @import 'https://min.gitcdn.link/repo/jomarcardoso/jo-CssResets/master/assets/css/resets.css';
 
+::selection {
+  background: transparent;
+}
+
 section {
   padding: 20px;
 }
@@ -23,6 +27,7 @@ article {
 h3 {
   margin-top: 10px;
   text-align: center;
+  pointer-events: none;
 }
 
 span {

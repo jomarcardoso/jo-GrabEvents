@@ -25,18 +25,32 @@ export function OnGrab(el, {
   let endX;
   let startY;
   let endY;
+  let clicking = false;
 
-  el.addEventListener('touchstart', (e) => {
-    breakpointX = e.changedTouches[0].screenX;
-    breakpointY = e.changedTouches[0].screenY;
+  function handleGrab(e, x, y) {
+    breakpointX = x;
+    breakpointY = y;
     startX = breakpointX;
     startY = breakpointY;
     onGrab && onGrab(e, { x: startX, y: startY });
+  }
+
+  el.addEventListener('mousedown', (e) => {
+    clicking = true;
+    const x = e.screenX;
+    const y = e.screenY;
+    handleGrab(e, x, y);
   });
 
-  el.addEventListener('touchend', (e) => {
-    endX = e.changedTouches[0].screenX;
-    endY = e.changedTouches[0].screenY;
+  el.addEventListener('touchstart', (e) => {
+    const x = e.changedTouches[0].screenX;
+    const y = e.changedTouches[0].screenY;
+    handleGrab(e, x, y);
+  });
+
+  function handleDrop(e, x, y) {
+    endX = x;
+    endY = y;
 
     if (safeX < endX - startX) {
       onDropRight && onDropRight();
@@ -53,13 +67,25 @@ export function OnGrab(el, {
     if (safeY < startY - endY) {
       onDropTop && onDropTop();
     }
-
     onDrop && onDrop(e, { x: endX, y: endY });
+  }
+
+  document.addEventListener('mouseup', (e) => {
+    const x = e.screenX;
+    const y = e.screenY;
+    clicking = false;
+    handleDrop(e, x, y)
   });
 
-  el.addEventListener('touchmove', (e) => {
-    let positionX = e.changedTouches[0].screenX;
-    let positionY = e.changedTouches[0].screenY;
+  el.addEventListener('touchend', (e) => {
+    const x = e.changedTouches[0].screenX;
+    const y = e.changedTouches[0].screenY;
+    handleDrop(e, x, y);
+  });
+
+  function handleDrag(e, x, y) {
+    let positionX = x;
+    let positionY = y;
 
     if (safeX < positionX - breakpointX) {
       onDragRight && onDragRight();
@@ -82,5 +108,18 @@ export function OnGrab(el, {
     }
 
     onDrag && onDrag(e, { x: positionX, y: positionY });
+  }
+
+  document.addEventListener('mousemove', (e) => {
+    if (!clicking) return;
+    const x = e.screenX;
+    const y = e.screenY;
+    handleDrag(e, x, y);
+  });
+
+  el.addEventListener('touchmove', (e) => {
+    const x = e.changedTouches[0].screenX;
+    const y = e.changedTouches[0].screenY;
+    handleDrag(e, x, y);
   });
 }

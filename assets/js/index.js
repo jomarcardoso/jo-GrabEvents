@@ -20,13 +20,13 @@ function onTouchMove() {
   }
 
   function onGrab() {
-    elStatus.innerHTML = 'yes';
+    elStatus.innerHTML = 'GRABBING';
   }
 
   function onDrop() {
     onYMove(() => 0);
     onXMove(() => 0);
-    elStatus.innerHTML = 'not';
+    elStatus.innerHTML = 'GRAB!';
   }
 
   function onDrag(e, axes) {
