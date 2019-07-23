@@ -1,0 +1,33 @@
+/**
+ * resets
+ * source: https://raw.githubusercontent.com/jomarcardoso/jo-CssResets/master/assets/css/resets.css
+ * cdn: https://min.gitcdn.link/
+ */
+@import 'https://min.gitcdn.link/repo/jomarcardoso/jo-CssResets/master/assets/css/resets.css';
+
+section {
+  padding: 20px;
+}
+
+article {
+  max-width: 400px;
+  background-color: crimson;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  margin: 0 auto;
+}
+
+h3 {
+  margin-top: 10px;
+  text-align: center;
+}
+
+span {
+  pointer-events: none;
+  font-weight: normal;
+}
+
+
