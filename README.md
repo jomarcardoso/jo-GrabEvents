@@ -1,6 +1,6 @@
 # Jo - Grab Events
 
-Published on [jo-grabevents.surge.sh](jo-grabevents.surge.sh)
+Published on [jo-grabevents.surge.sh](https://jo-grabevents.surge.sh)
 
 ## Core components
 
