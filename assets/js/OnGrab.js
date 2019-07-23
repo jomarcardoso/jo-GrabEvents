@@ -4,7 +4,7 @@
  * @param {node} el
  * @param {object} options
  */
-export function OnGrab(el, {
+export default function OnGrab(el, {
   safeX = 20,
   safeY = 20,
   onDragTop,

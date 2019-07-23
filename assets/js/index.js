@@ -1,4 +1,4 @@
-import { OnGrab } from './OnTouchMove.js';
+import OnGrab from './OnGrab.js';
 
 function onTouchMove() {
   const elXAxis = document.querySelector('#touch-result-1-x');
