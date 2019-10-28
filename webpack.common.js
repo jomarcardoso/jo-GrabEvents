@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
   entry: {
     index: './source/js/index.js',
-    OnGrab: './source/js/OnGrab.js'
+    OnGrab: './source/js/OnGrab.ts'
   },
   output: {
     path: path.resolve(__dirname, 'build/js'),
@@ -12,7 +12,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js)$/,
+        test: /\.([j|t]s)$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
         options: {

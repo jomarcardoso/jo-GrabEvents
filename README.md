@@ -14,8 +14,8 @@ Sample usage [jo-grabevents.surge.sh](https://jo-grabevents.surge.sh)
 import OnGrab from 'jo-grabevents';
 
 OnGrab(document, {
-  // safeX = 20,
-  // safeY = 20,
+  // safe.x = 20,
+  // safe.y = 20,
   // onDragTop,
   // onDragBottom,
   // onDragLeft,

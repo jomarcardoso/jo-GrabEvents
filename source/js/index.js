@@ -1,4 +1,4 @@
-import OnGrab from './OnGrab.js';
+import OnGrab from './OnGrab.ts';
 
 function onTouchMove() {
   const elXAxis = document.querySelector('#touch-result-1-x');
@@ -43,10 +43,10 @@ function onTouchMove() {
 
   OnGrab(
     document.querySelector('#touch-pad-1'), {
-      onDragLeft: () => onXMove(i => i -= 1),
-      onDragRight: () => onXMove(i => i += 1),
-      onDragTop: () => onYMove(i => i -= 1),
-      onDragBottom: () => onYMove(i => i += 1),
+      onDragLeft: () => onXMove((i) => i -= 1),
+      onDragRight: () => onXMove((i) => i += 1),
+      onDragTop: () => onYMove((i) => i -= 1),
+      onDragBottom: () => onYMove((i) => i += 1),
       onGrab,
       onDrop,
       onDrag,
