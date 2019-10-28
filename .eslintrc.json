@@ -1,0 +1,24 @@
+{
+  "extends": "airbnb-base",
+  "parser": "babel-eslint",
+  "env": {
+    "jest": true,
+    "browser": true
+  },
+  "rules": {
+    "import/prefer-default-export": "off",
+    "comma-dangle": "off",
+    "no-underscore-dangle": "off",
+    "eol-last": "off",
+    "linebreak-style": "off",
+    "object-curly-newline": "off",
+    "max-len": "off",
+    "no-console": "off"
+  },
+  "globals": {
+    "$": false,
+    "fetch": false,
+    "document": false,
+    "location": false
+  }
+}

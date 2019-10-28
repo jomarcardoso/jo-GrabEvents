@@ -1,10 +1,15 @@
 {
   "name": "jo-grabevents",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Detect touch and click event like drag grab and drop",
   "main": "./assets/js/OnGrab.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "eslint",
+    "js": "webpack --config webpack.dev.js",
+    "server": "http-server ./build",
+    "start": "run-p js server",
+    "build": "webpack --config webpack.prod.js",
+    "npm-publish": "yarn build && npm publish"
   },
   "repository": {
     "type": "git",
@@ -15,5 +20,20 @@
   "bugs": {
     "url": "https://github.com/jomarcardoso/jo-GrabEvents/issues"
   },
-  "homepage": "jo-grabevents.surge.sh"
+  "homepage": "https://jo-grabevents.surge.sh",
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "eslint": "^6.5.1",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-loader": "^3.0.2",
+    "eslint-plugin-import": "^2.18.2",
+    "jo-cssresets": "^6.5.0",
+    "npm-run-all": "^4.1.5",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-merge": "^4.2.2"
+  }
 }
